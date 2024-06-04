@@ -29,6 +29,7 @@ app.get('/api/rolesdata', (req,res) => {
 })
 
 app.use(express.json())
+app.use('/api',require('./routes/FieldsData.js'))
 app.use('/api',require('./routes/RolesData.js'))
 app.use('/api',require('./routes/CreateUser.js'))
 app.use('/api',require('./routes/Login.js'))

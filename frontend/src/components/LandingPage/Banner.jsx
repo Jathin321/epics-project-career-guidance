@@ -31,7 +31,7 @@ const Banner = () => {
             <button className="hover:bg-gray-900 text-white text-2xl mt-7 py-2 px-4 rounded-full">
               Learn More
             </button>
-            <Link to="/login">
+            <Link to="/fields">
               <button className="bg-blue-600 text-white text-2xl mt-7 py-2 px-4 rounded-md">
                 Get Started
               </button>

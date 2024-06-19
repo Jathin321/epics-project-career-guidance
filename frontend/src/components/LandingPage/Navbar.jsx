@@ -11,7 +11,7 @@ export default function Navbar() {
           <span className="pl-3 text-white">Career Guide</span>
         </div>
         <div className='space-x-5 text-2xl cursor-pointer font-semibold '>
-          <a className=' text-white text-2xl mt-7 py-1 px-4 rounded-full '>Home</a>
+          <Link to="/"><a className=' text-white text-2xl mt-7 py-1 px-4 rounded-full '>Home</a></Link>
           <a className=' text-white text-2xl mt-7 py-1 px-4 rounded-full '>Learn</a>
           <a className=' text-white text-2xl mt-7 py-1 px-4 rounded-full '>About Us</a>
         </div>

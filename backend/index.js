@@ -33,6 +33,7 @@ app.use('/api',require('./routes/FieldsData.js'))
 app.use('/api',require('./routes/RolesData.js'))
 app.use('/api',require('./routes/CreateUser.js'))
 app.use('/api',require('./routes/Login.js'))
+app.use('/api',require('./routes/GetUser.js'))
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

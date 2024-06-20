@@ -18,10 +18,13 @@ async (req,res) => {
 
     try{
         await User.create({
+            surname: req.body.surname,
             name: req.body.name,
+            phone: req.body.phone,
             password: req.body.password,
             email: req.body.email,
-            location: req.body.location
+            country: req.body.country,
+            state: req.body.state
         });
         res.json({ success: true, msg: "Thank you Creating account" })
     }

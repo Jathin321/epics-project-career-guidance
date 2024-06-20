@@ -35,10 +35,10 @@ export default function Login() {
       if (!json.success) {
         alert("Enter valid credentials");
       } else {
-        // localStorage.setItem("authToken", json.authToken);
-        // localStorage.setItem("userEmail", Credentials.email);
+        localStorage.setItem("authtoken", json.authToken);
+        localStorage.setItem("userEmail", Credentials.email);
         console.log(Credentials.email);
-        // console.log(localStorage.getItem("authToken"));
+        console.log(localStorage.getItem("authtoken"));
         navigate("/fields");
       }
     } catch (error) {

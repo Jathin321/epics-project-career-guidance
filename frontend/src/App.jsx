@@ -6,6 +6,7 @@ import Login from './pages/login';
 import Signup from './pages/signup';
 import Role from './pages/role';
 import Role_desc from './pages/Role_desc';
+import Profile from './pages/Profile';
 // import Blogs from './components/Blogs/Blogs';
 // import Assesment from './components/Assessment/Assesment';
 // import { BlogForm } from './components/Blogs/BlogForm'
@@ -32,6 +33,7 @@ function App() {
         <Route path="/signup" element={<Signup/>} />
         <Route path="/roles/:field" element={<Role/>} />
         <Route path="/role_desc/:role" element={<Role_desc/>} />
+        <Route path='/profile' element={<Profile/>}/>
         {/* <Route path="/blogs" element={<Blogs />} />
         <Route path="/myassessment" element={<Assesment />} />
         <Route path="/admin/addRoadmap" element={<RoadmapForm />} />

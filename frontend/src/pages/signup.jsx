@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
 
 
 export default function Signup() {
 
-    const [Credentials, setCredentials] = useState({name:"",email:"",password:"",location:""})
+    const [Credentials, setCredentials] = useState({surname:"",name:"",phone:"",email:"",password:"",country:"",state:""})
+    let navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(JSON.stringify({name : Credentials.name, email : Credentials.email, password : Credentials.password, location : Credentials.location}))
+        console.log(JSON.stringify({surname : Credentials.surname, email : Credentials.email, password : Credentials.password, state : Credentials.state}))
         try {
           const response = await fetch("http://localhost:9999/api/createuser", {
             method: 'POST',
@@ -18,10 +19,13 @@ export default function Signup() {
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-              name: Credentials.name,
+              surname: Credentials.surname,
+              name:Credentials.name,
+              phone:Credentials.phone,
               email: Credentials.email,
               password: Credentials.password,
-              location: Credentials.location,
+              country: Credentials.country,
+              state: Credentials.state
             })
           });
           // if (!response.ok) {
@@ -31,6 +35,9 @@ export default function Signup() {
           console.log(json);
           if (!json.success) {
             alert("Enter valid credentials");
+          }
+          else{
+            navigate("/login");
           }
         } catch (error) {
           console.error("SYJ Error:", error);
@@ -64,9 +71,16 @@ export default function Signup() {
                     <input
                         type="text"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
+                        name="surname"
+                        onChange={onChange}
+                        placeholder="Surname" />
+
+                    <input
+                        type="text"
+                        className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="name"
                         onChange={onChange}
-                        placeholder="Full Name" />
+                        placeholder="Name" />
 
                     <input
                         type="email"
@@ -76,11 +90,25 @@ export default function Signup() {
                         placeholder="Email" />
 
                     <input
+                        type="number"
+                        className="block border border-grey-light w-full p-3 rounded mb-4"
+                        name="phone"
+                        onChange={onChange}
+                        placeholder="Phone Number" />
+
+                    <input
                         type="text"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
-                        name="location"
+                        name="country"
                         onChange={onChange}
-                        placeholder="location" />
+                        placeholder="Country" />
+
+                    <input
+                        type="text"
+                        className="block border border-grey-light w-full p-3 rounded mb-4"
+                        name="state"
+                        onChange={onChange}
+                        placeholder="State" />
 
                     <input
                         type="password"

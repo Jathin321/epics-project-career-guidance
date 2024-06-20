@@ -16,7 +16,10 @@ export default function Navbar() {
           <a className=' text-white text-2xl mt-7 py-1 px-4 rounded-full '>About Us</a>
         </div>
         <div className='space-x-4 text-2xl cursor-pointer font-semibold mr-12 '>
-          <Link to="/login"><button className='bg-blue-500 text-white text-2xl py-1 px-4 rounded-md mt-2'>Sign In</button></Link>
+          {(!localStorage.getItem("authtoken")? 
+          <Link to="/login"><button className='bg-blue-500 text-white text-2xl py-1 px-4 rounded-md mt-2'>Sign In</button></Link> : 
+          <Link to="/profile"><button className='bg-blue-500 text-white text-2xl py-1 px-4 rounded-md mt-2'>Profile</button></Link>)}
+          
         </div>
       </div>
 

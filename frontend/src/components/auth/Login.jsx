@@ -31,11 +31,11 @@ export default function Login({ setAuthState }) {
             alert("Enter valid credentials");
           }
           else{
-            localStorage.setItem("authToken",json.authToken);
+            localStorage.setItem("authtoken",json.authToken);
             localStorage.setItem("userEmail",Credentials.email);
             console.log(Credentials.email)
-            console.log(localStorage.getItem("authToken"));
-            navigate("/fields");
+            console.log("auth token is :",localStorage.getItem("authtoken"));
+            // navigate("/fields");
           }
         } catch (error) {
           console.error("SYJ Error:", error);

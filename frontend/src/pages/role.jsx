@@ -30,6 +30,39 @@ export default function Role() {
     loadData();
   }, []);
 
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    const ROLE = e.target.name;
+    const FIELD = e.target.id;
+    console.log(localStorage.getItem("userEmail"))
+    console.log(JSON.stringify({role : ROLE, field: FIELD}))
+    try {
+      const response = await fetch("http://localhost:9999/api/addfav", {
+        method: 'POST',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email : (localStorage.getItem("userEmail")),
+          roleName : ROLE,
+          fieldName : FIELD
+        })
+      });
+      if(response.status !== 200){
+        console.log(response)
+      }
+      else{
+        console.log("Item added to favorites succesfully")
+      }
+    } catch (error) {
+      console.error("SYJ Error:", error);
+    }
+  }
+
   return (
     <>
     <Navbar/>
@@ -85,7 +118,7 @@ export default function Role() {
                         </svg>
                         <p>1.2k Views</p>
                       </div>
-                      <button className="flex-no-shrink bg-green-400 hover:bg-green-500 px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-full transition ease-in duration-300">
+                      <button name={role.role} id={field} onClick={handleSubmit} className="flex-no-shrink bg-green-400 hover:bg-green-500 px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-full transition ease-in duration-300">
                         FAVORITE
                       </button>
                       <Link to={`/role_desc/${role.role}`}>

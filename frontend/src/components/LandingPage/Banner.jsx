@@ -28,9 +28,11 @@ const Banner = () => {
             </p>
           </div>
           <div className="flex cursor-pointer justify-end text-2xl space-x-4 mt-3 pt-10">
+            <Link to="/about">
             <button className="hover:bg-gray-900 text-white text-2xl mt-7 py-2 px-4 rounded-full">
-              Learn More
+              About Us
             </button>
+            </Link>
             <Link to="/fields">
               <button className="bg-blue-600 text-white text-2xl mt-7 py-2 px-4 rounded-md">
                 Get Started

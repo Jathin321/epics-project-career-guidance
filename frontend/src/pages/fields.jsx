@@ -59,11 +59,11 @@ export default function Fields() {
                             className="block text-xs text-white/90"
                           >
                             {" "}
-                            10th Oct 2022{" "}
+                            {/* 10th Oct 2022{" "} */}
                           </time>
 
                           <a href="#">
-                            <h3 className="mt-0.5 text-lg text-white">
+                            <h3 className="mt-0.5 text-2xl text-white">
                               {data.field_name}
                             </h3>
                           </a>

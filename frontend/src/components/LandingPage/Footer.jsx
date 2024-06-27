@@ -119,8 +119,8 @@ when an unknown printer took a galley of type and scrambled it to m
     </div>
   </div>
   <div className="text-center p-6 bg-gray-200">
-    <span>© 2022 Copyright: </span>
-    <a className="text-gray-600 font-semibold" >weGuide- Onwards and Upwards</a>
+    {/* <span>© 2022 Copyright: </span> */}
+    <a className="text-gray-600 font-semibold" >Vignans's Institute of Information Technology</a>
   </div>
 </footer>
   )

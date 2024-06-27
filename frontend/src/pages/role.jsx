@@ -57,10 +57,12 @@ export default function Role() {
         })
       });
       if(response.status !== 200){
+        alert("Cannot Add to Favorites")
         console.log(response)
       }
       else{
         console.log("Item added to favorites succesfully")
+        alert("Item Added to Favorites Successfully")
       }
     } catch (error) {
       console.error("SYJ Error:", error);
@@ -80,65 +82,65 @@ export default function Role() {
         </h1>
       </div>
       {roles != [] ? (
-        roles
-          .filter((item) => item.field === field)
-          .map((role) => (
-            <div className="flex flex-col top-0 z-10 my-11" id={role._id}>
-              <div className="bg-gray-800 border border-gray-800 shadow-lg rounded-2xl p-4">
-                <div className="flex-none sm:flex">
-                  <div className="relative h-32 w-32 sm:mb-0 mb-3">
-                    <img
-                      src="https://tailwindcomponents.com/storage/avatars/njkIbPhyZCftc4g9XbMWwVsa7aGVPajYLRXhEeoo.jpg"
-                      alt="aji"
-                      className="w-32 h-32 object-cover rounded-2xl"
-                    />
-                  </div>
-                  <div className="flex-auto sm:ml-5 justify-evenly">
-                    <div className="flex items-center justify-between sm:mt-2">
-                      <div className="flex items-center">
-                        <div className="flex flex-col">
-                          <div className="w-full flex-none text-4xl text-gray-200 font-bold leading-none mb-3">
-                            {role.role}
-                          </div>
-                          <div className="flex-auto text-gray-400 my-3">
-                            <span className="mr-3">
-                              {role.rdetails.statement}
-                            </span>
-                            {/* <span className="mr-3 border-r border-gray-600 max-h-0"></span>
-                    <span></span> */}
-                          </div>
-                        </div>
-                      </div>
+  roles
+    .filter((item) => item.field.toLowerCase() === field.toLowerCase())
+    .map((role) => (
+      <div className="flex flex-col top-0 z-10 my-11" id={role._id} key={role._id}>
+        <div className="bg-gray-800 border border-gray-800 shadow-lg rounded-2xl p-4">
+          <div className="flex-none sm:flex">
+            <div className="relative h-32 sm:mb-0 mb-3">
+              <img
+                src={role.image}
+                alt="aji"
+                className=" h-32 object-cover rounded-2xl"
+                style={{ width: '150px', height: '150px', objectFit: "cover"}}// Example: Set a fixed width of 200px
+              />
+            </div>
+            <div className="flex-auto sm:ml-5 justify-evenly">
+              <div className="flex items-center justify-between sm:mt-2">
+                <div className="flex items-center">
+                  <div className="flex flex-col">
+                    <div className=" flex-none text-4xl text-gray-200 font-bold leading-none mb-3">
+                      {role.role}
                     </div>
-                    <div className="flex pt-2 text-sm text-gray-400">
-                      <div className="flex-1 inline-flex items-center">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5 mr-2"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"></path>
-                        </svg>
-                        <p>1.2k Views</p>
-                      </div>
-                      <button name={role.role} id={field} onClick={handleSubmit} className="flex-no-shrink bg-green-400 hover:bg-green-500 px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-full transition ease-in duration-300">
-                        FAVORITE
-                      </button>
-                      <Link to={`/role_desc/${role.role}`}>
-                        <button className="flex-no-shrink bg-green-400 hover:bg-green-500 px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-full transition ease-in duration-300">
-                          KNOW MORE
-                        </button>
-                      </Link>
+                    <div className="flex-auto text-gray-400 my-3">
+                      <span className="mr-1">
+                        {role.rdetails.statement}
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
+              <div className="flex pt-2 text-sm text-gray-400">
+                <div className="flex-1 inline-flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 mr-2"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"></path>
+                  </svg>
+                  <p>1.2k Views</p>
+                </div>
+                <button name={role.role} id={field} onClick={handleSubmit} className="flex-no-shrink bg-green-400 hover:bg-green-500 px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-full transition ease-in duration-300">
+                  FAVORITE
+                </button>
+                <Link to={`/role_desc/${role.role}`}>
+                  <button className="flex-no-shrink bg-green-400 hover:bg-green-500 px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-full transition ease-in duration-300">
+                    KNOW MORE
+                  </button>
+                </Link>
+              </div>
             </div>
-          ))
-      ) : (
-        <div>no such items</div>
-      )}
+          </div>
+        </div>
+      </div>
+    ))
+) : (
+  <div>no such items</div>
+)}
+
     </div>
     </>
   );

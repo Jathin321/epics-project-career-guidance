@@ -19,9 +19,11 @@ export default function Navbar() {
           <a className=" text-white text-2xl mt-7 py-1 px-4 rounded-full ">
             Learn
           </a>
+          <Link to="/about">
           <a className=" text-white text-2xl mt-7 py-1 px-4 rounded-full ">
             About Us
           </a>
+          </Link>
         </div>
         <div className="space-x-4 text-2xl cursor-pointer font-semibold mr-12 ">
           {!localStorage.getItem("authtoken") ? (

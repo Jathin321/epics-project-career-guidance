@@ -6,7 +6,7 @@ const mongoDb = async () => {
         await mongoose.connect(mongoURI);
         console.log("MongoDb connected...");
 
-        const fetched_data = await mongoose.connection.db.collection("sample_data").find({}).toArray(async (err)=>{
+        const fetched_data = await mongoose.connection.db.collection("roles_data").find({}).toArray(async (err)=>{
             if(err) console.log("fetch error : ",err);
         })
         global.rolesdata = fetched_data;

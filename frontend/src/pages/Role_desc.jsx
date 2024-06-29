@@ -28,10 +28,11 @@ export default function Role_desc() {
     setRoles(final_role[0]);
     setRdetails(final_role[0].rdetails);
     // setCourses(final_role[0].rdetails.courses_avaliable);
-    setCertifications(final_role[0].rdetails.certifications_req);
+    setCertifications(final_role[0].rdetails.certifications_req || []);
     setSkills(final_role[0].rdetails.skills_req);
-    setCompanies(final_role[0].companies);
-    console.log(final_role[0].rdetails.courses_avaliable.Udemy);
+    setCompanies(final_role[0].companies || []);
+    // console.log(final_role[0].companies)
+    // console.log(final_role[0].rdetails.courses_avaliable.Udemy);
     // const fin = response[0].filter((item)=> (item.field === field))
     // console.log("roles are :  ",roles);
     // console.log(response[0],response[1]);
@@ -149,7 +150,8 @@ export default function Role_desc() {
             <div className="border-b px-5 py-4">
               <div className="overflow-x-auto">
                 <ul className="list-disc space-y-4 pl-5 font-sans text-lg text-gray-800">
-                  {certifications.map((item) => (
+                  { 
+                  certifications.map((item) => (
                     // <li className="rounded border border-gray-300 bg-gray-100 p-3 transition duration-300 hover:bg-gray-200">
                     //   {item}
                     // </li>
@@ -207,7 +209,8 @@ export default function Role_desc() {
             </div>
 
             <div className="mt-8 grid grid-cols-1 gap-8 md:mt-16 md:grid-cols-2 md:gap-12 lg:grid-cols-3">
-              {companies.map((item) => (
+              {
+              companies.map((item) => (
                 <div className="flex items-start gap-4">
                   <div className="p-10 flex flex-col items-center text-center group md:lg:xl:border-r md:lg:xl:border-b hover:bg-slate-50 cursor-pointer">
                     <span className="p-5 rounded-full bg-red-500 text-white shadow-lg shadow-red-200">
@@ -317,7 +320,7 @@ export default function Role_desc() {
                 //     Get Started
                 //   </a>
                 // </div>
-              ))}
+              )) }
             </div>
           </div>
           {/* end */}
